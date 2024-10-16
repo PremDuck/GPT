@@ -12,7 +12,8 @@ init(autoreset=True)
 # Initialize GPT-Neo model from Hugging Face
 def init_gpt_neo():
     print(Fore.YELLOW + "Initializing GPT-Neo model..." + Style.RESET_ALL)
-    generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
+    # Use Hugging Face's pipeline for GPT-Neo
+    generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B', framework='pt')  # Use PyTorch
     return generator
 
 # Create or connect to the SQLite database
